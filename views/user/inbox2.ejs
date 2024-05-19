@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Chat</title>
+    <link href="/admin/assets/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/assets/css/chat.css">
+    <link href="/admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="sb-nav-fixed bg-dark text-white">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="mt-4 mb-4">Chat sahypasy</h1>
+                        <div ><a href="/user/" style="font-size: 20px;" class="btn btn-success">Chatdan çykmak <i class="bi bi-box-arrow-left "></i></a></div>
+                    </div>
+                    <div class="container-fluid bootstrap snippets bootdey">
+                        <div class="row shadow-lg p-3">
+                            <div class="col-md-4 bg-white ">
+
+                                <ul class="friend-list" style="padding: 20px 0px 20px 50px;">
+
+                                    <li class=" bounceInDown mb-4">
+                                        <a href="/user/inbox" class="clearfix">
+                                            <div class="friend-name" style="font-size: 20px;">
+                                                <strong>IŞGÄRLER:</strong>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <% ulanyjylar.forEach(ulanyjy=> { %>
+
+                                        <% if (ulanyjy.id !=userId) { %>
+                                            <li class=" <% if (sender_userId == ulanyjy.id) { %>
+                                                active
+                                            <% } %> bounceInDown">
+                                                <a href="/user/inbox/<%= ulanyjy.id %>" class="clearfix">
+                                                    <img src="/uploads/user/<%= ulanyjy.user_img %>" alt=""
+                                                        class="img-circle">
+                                                    <div class="friend-name" style="font-size: 20px;">
+                                                        <strong>
+                                                            <%= ulanyjy.name %>
+                                                                <%= ulanyjy.surname %>
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <% } %>
+
+                                                <% }) %>
+                                </ul>
+                            </div>
+
+                            <!--=========================================================-->
+                            <!-- selected chat -->
+                            <div class="col-md-8 bg-white ">
+                                <div class="chat-message">
+                                    <ul class="chat bg-dark py-3 ">
+                                        <% messages.forEach(message=> { %>
+                                            <li class="left clearfix">
+                                                <div class="chat-body clearfix mx-5 text-dark">
+                                                    <div class="header d-flex justify-content-between">
+                                                        <div>
+                                                            <strong class="primary-font ">
+                                                                <%= message.sender %>
+                                                            </strong>
+                                                            <small class="pull-right text-dark "><i
+                                                                    class="bi bi-clock"></i>
+                                                                <%= message.created_at %>
+                                                            </small>
+                                                        </div>
+                                                        <% if (message.send_user==userId) { %>
+                                                            <form action="/user/message/delete/<%= message.id %>"
+                                                                method="post">
+                                                                <div class="d-flex justify-content-between mx-5 ">
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                                                </div>
+                                                            </form>
+                                                            <% } %>
+                                                    </div>
+                                                    <div class="row mt-2">
+                                                        <div class="col-9">
+                                                            <p>
+                                                                <%= message.message %>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <% if (message.file) { %>
+                                                                <a href="/uploads/file/<%= message.file %>"
+                                                                    class="btn btn-warning" download=""><i
+                                                                        class="bi bi-file-earmark-fill"
+                                                                        style="font-size: 20px;"></i></a>
+                                                                <% } else { %>
+
+                                                                    <% } %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <% }) %>
+
+
+                                    </ul>
+                                </div>
+                                <div class="chat-box bg-white ">
+                                    <form action="/user/message" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="send_user" value="<%= sender_userId %>">
+
+                                        <div class="input-group   mb-4 d-flex justify-content-end">
+                                            <input class="form-control " placeholder="File girizin" type="file"
+                                                name="file">
+
+                                        </div>
+
+                                        <div class="input-group">
+                                            <input type="text" class="form-control border no-shadow no-rounded"
+                                                placeholder="Ýazmak üçin...." name="message" required>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-dark no-rounded" type="submit"><i
+                                                        class="bi bi-send"
+                                                        style="font-size: 24px;"></i></button>
+                                            </span>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </main>
+           
+        </div>
+</body>
+
+</html>

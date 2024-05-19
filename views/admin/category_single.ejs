@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="/admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .btn-danger {
+        background-color: #770b0b!important;
+        border: none;
+    }
+</style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-5">
+        <div class="card mt-5 align-items-center">
+          <div class="card-header">
+            Tertip belgisi: <%= category.id %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Ady:  <%= category.name %>
+            </h5>
+            <a href="/admin/category" class="btn btn-danger">Yza çykmak</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bölüm udalit</title>
+    <link href="/admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <style>
+    .btn-primary {
+        background-color: #171f65!important;
+        border: none;
+    }
+    .btn-danger {
+        background-color: #770b0b!important;
+        border: none;
+    }
+    .btn-success {
+        background-color: #057817!important;
+        border: none;
+    }
+</style>
+</head>
+<body>
+    
+  <div class="container">
+    <div class="row d-flex justify-content-center" >
+      <div class="col-lg-5">
+        <div class="card mt-5 align-items-center">
+          <div class="card-header">
+            Tertip belgisi: <%= category.id %>
+          </div>
+          <div class="card-body ">
+            <h5> Siz hakykatdanam su bölümi </h5>
+            <h5>udalit etmek isleyarsinizmi?</h5>
+            <h2 class="card-title">Bölüm ady: <%= category.name %>
+            </h2>
+            <div class="mt-4 d-flex justify-content-center">
+              <form action="" method="post">
+                <button type="submit" class="btn btn-success">Howa</button>
+                <a href="/admin/category" class="btn btn-danger">Yok</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

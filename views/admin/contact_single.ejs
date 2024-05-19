@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bölüm udalit</title>
+    <link href="/admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <style>
+    .btn-primary {
+        background-color: #171f65!important;
+        border: none;
+    }
+    .btn-danger {
+        background-color: #770b0b!important;
+        border: none;
+    }
+    .btn-success {
+        background-color: #057817!important;
+        border: none;
+    }
+</style>
+</head>
+<body>
+    
+  <div class="container">
+    <div class="row d-flex justify-content-center" >
+      <div class="col-lg-5">
+        <div class="card mt-5 align-items-center">
+          <div class="card-header">
+            Tertip belgisi: <%= contact.id %>
+          </div>
+          <div class="card-body ">
+            <h4 class="card-title">Ady: <%= contact.name %>
+            </h4>
+            <h4 class="card-title">Emaily: <%= contact.email %>
+            </h4>
+            <h4 class="card-title">Telefon nomeri: <%= contact.phone_num %>
+            </h4>
+            <h5 class="card-text">Haty: <%= contact.message %>
+            </h5>
+            <div class="mt-4 d-flex justify-content-center">
+                <a href="/admin/contact" class="btn btn-danger">Yza çykmak</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
