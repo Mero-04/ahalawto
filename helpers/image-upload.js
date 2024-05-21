@@ -6,9 +6,6 @@ const storage = multer.diskStorage({
         if (file.fieldname === "blog_img") {
             cb(null, './public/uploads/blog/');
         }
-        else if (file.fieldname === "user_img") {
-            cb(null, './public/uploads/user/');
-        }
         else if (file.fieldname === "worker_img") {
             cb(null, './public/uploads/profil/');
         }

@@ -71,6 +71,7 @@
                         <th>Wezipesi</th>
                         <th>Ýaşaýan ýeri</th>
                         <th>Suraty</th>
+                        <th>3arka</th>
                         <th>Sazlamalar</th>
                     </tr>
                 </thead>
@@ -104,6 +105,10 @@
                             <td>
                                 <img src="/uploads/user/<%= user.user_img %>" width="150"
                                     height="100" alt="tapylmady">
+                            </td>
+                            <td>
+                              <a href="/uploads/3arka/<%= user.arka_file %>" class="btn btn-warning" download=""><i
+                                  class="bi bi-file-earmark-fill"></i></a>
                             </td>
                             <td>
                                 <a href="/admin/user/<%= user.id %>" class="btn btn-primary"> <i
