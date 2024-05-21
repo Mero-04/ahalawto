@@ -29,14 +29,16 @@
     <div class="row d-flex justify-content-center" >
       <div class="col-lg-5">
         <div class="card mt-5 align-items-center">
-          <div class="card-header">
+          <div class="card-header"> 
             Tertip belgisi: <%= user.id %>
           </div>
           <div class="card-body ">
-            <h5> Siz hakykatdanam su işgäri </h5>
-            <h5>udalit etmek isleyarsinizmi?</h5>
-            <h2 class="card-title">Ady: <%= user.surname %>
-            </h2>
+            <h3> Siz hakykatdanam su işgäri </h3>
+            <h3>udalit etmek isleyarsinizmi?</h3>
+            <h4 class="card-title">Ady: <%= user.name %>
+            </h4>
+            <h4 class="card-title">Familýasy: <%= user.surname %>
+            </h4>
             <div class="mt-4 d-flex justify-content-center">
               <form action="" method="post">
                 <button type="submit" class="btn btn-success">Howa</button>

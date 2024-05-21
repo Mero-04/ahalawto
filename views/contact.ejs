@@ -86,12 +86,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d25098.240245278368!2d57.956378!3d38.156931!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f7a9500288d5f15%3A0x6104d6587bf3cf6e!2z0JPRkdC60LTQtdC_0LUsINCi0YPRgNC60LzQtdC90LjRgdGC0LDQvQ!5e0!3m2!1sru!2sus!4v1716233667088!5m2!1sru!2sus"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div id="iframe_map" class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                        
                     </div>
+
+                    <script>
+                        function checkConnection() {
+                            var node = document.getElementById('iframe_map');
+                            if (navigator.onLine) {
+                                node.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d25098.240245278368!2d57.956378!3d38.156931!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f7a9500288d5f15%3A0x6104d6587bf3cf6e!2z0JPRkdC60LTQtdC_0LUsINCi0YPRgNC60LzQtdC90LjRgdGC0LDQvQ!5e0!3m2!1sru!2sus!4v1716233667088!5m2!1sru!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+                            } else {
+                                node.innerHTML = '<h1>Kartany doly görmek isleseňiz, interneda birigiň.</h1>'
+                            }
+
+                            
+                        }
+
+                        checkConnection();
+                    </script>
+
                     <div class="col-md-6">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
                             <p class="mb-4">Türkmenistanyň Ministrler Kabinetiniň ýanyndaky Ulag we kammunikasiýalar

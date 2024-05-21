@@ -11,8 +11,8 @@ const { Op, where } = require("sequelize")
 const moment = require("moment")
 
 
-router.get("/", async (req, res) => {
-    res.render("user/home_user",{
+router.get("/", isKadr, async (req, res) => {
+    res.render("user/home_user", {
         img: req.session.img,
         username: req.session.email,
         page: "home"
@@ -95,9 +95,9 @@ router.get("/message/:userId", isKadr, async (req, res) => {
 
 router.post("/message", isKadr, imageUpload.upload.single("file"), async (req, res) => {
     const id = req.params.userId;
-   
+
     if (req.file) {
-         await Message.create({
+        await Message.create({
             message: req.body.message,
             userId: req.body.send_user,
             send_user: req.session.userId,
@@ -124,11 +124,11 @@ router.post("/message", isKadr, imageUpload.upload.single("file"), async (req, r
 
 router.post("/message/delete/:messageId", isKadr, async (req, res) => {
     const message = await Message.findOne({
-        where: { id : req.params.messageId}
+        where: { id: req.params.messageId }
     });
     if (message) {
         message.destroy();
-        return res.redirect("/user/inbox/" + message.userId )
+        return res.redirect("/user/inbox/" + message.userId)
     } else {
         console.log("Message tapylmady")
     }
@@ -153,16 +153,16 @@ router.get("/umumy_chat/", async (req, res) => {
 })
 
 router.post("/umumy_chat/message", isKadr, imageUpload.upload.single("file"), async (req, res) => {
-       
+
     if (req.file) {
-         await Group_chat.create({
+        await Group_chat.create({
             message: req.body.message,
             userId: req.session.userId,
             sender: req.session.email,
             file: req.file.filename,
             created_at: moment().locale("tk").format('LT')
         })
-        res.redirect("/user/umumy_chat" )
+        res.redirect("/user/umumy_chat")
     } else {
         let message = await Group_chat.create({
             message: req.body.message,
@@ -177,7 +177,7 @@ router.post("/umumy_chat/message", isKadr, imageUpload.upload.single("file"), as
 
 router.post("/umumy_chat/message/delete/:messageId", isKadr, async (req, res) => {
     const message = await Group_chat.findOne({
-        where: { id : req.params.messageId}
+        where: { id: req.params.messageId }
     });
     if (message) {
         message.destroy();
